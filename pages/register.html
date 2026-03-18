@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hockey-site (Home)</title>
+    <link rel="stylesheet" href="../public/CSS/site.css">
+    <div class="top-tab">
+        <span class="brand">
+            <img src="../public/Images/logo.png" alt="SRVC Hockey Logo" class="logo-image">
+            <span class="logoName">SRVC Hockey</span>
+        </span>
+        <nav>
+            <a href="index.html" class="tab home">Home</a>
+            <a href="register.html" class="tab register active">Register</a>
+        </nav>
+    </div>
+
+</head>
+
+<body>
+    <div class="register-container">
+        <h1>SRVC HOCKEY CAMP</h1>
+        <h2>Official Camp Registration Packet</h2>
+
+        <form class="register-form">
+
+            <!-- SECTION 1 — PARTICIPANT INFORMATION -->
+            <h3>Section 1 — Participant Information</h3>
+
+            <label>Participant Name</label>
+            <input type="text" required>
+
+            <label>Date of Birth</label>
+            <input type="date" required>
+
+            <label>Age</label>
+            <input type="number" min="1" required>
+
+            <label>Current Team / Level</label>
+            <input type="text" required>
+
+            <label>Position</label>
+            <input type="text" required>
+
+            <label>USA Hockey Membership Number</label>
+            <input type="text" required>
+
+            <label>Jersey Size</label>
+            <select required>
+                <option value="">Select size</option>
+                <option>YS</option>
+                <option>YM</option>
+                <option>YL</option>
+                <option>AS</option>
+                <option>AM</option>
+                <option>AL</option>
+                <option>AXL</option>
+            </select>
+
+            <label>Parent/Guardian Name</label>
+            <input type="text" required>
+
+            <label>Phone</label>
+            <input type="tel" required>
+
+            <label>Email</label>
+            <input type="email" required>
+
+            <label>Address</label>
+            <input type="text" required>
+
+            <div class="row">
+                <div>
+                    <label>City</label>
+                    <input type="text" required>
+                </div>
+                <div>
+                    <label>State</label>
+                    <input type="text" required>
+                </div>
+                <div>
+                    <label>Zip</label>
+                    <input type="text" required>
+                </div>
+            </div>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge the above information is accurate.
+            </label>
+
+            <!-- SECTION 2 — EMERGENCY CONTACT -->
+            <h3>Section 2 — Emergency Contact</h3>
+
+            <label>Emergency Contact Name</label>
+            <input type="text" required>
+
+            <label>Relationship to Player</label>
+            <input type="text" required>
+
+            <label>Phone Number</label>
+            <input type="tel" required>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge this emergency contact information is correct.
+            </label>
+
+            <!-- SECTION 3 — MEDICAL INFORMATION -->
+            <h3>Section 3 — Medical Information</h3>
+
+            <label>Primary Insurance Provider</label>
+            <input type="text" required>
+
+            <label>Policy Number</label>
+            <input type="text" required>
+
+            <label>Primary Physician</label>
+            <input type="text" required>
+
+            <label>Physician Phone</label>
+            <input type="tel" required>
+
+            <label>Medical Conditions / Allergies</label>
+            <textarea rows="3" required></textarea>
+
+            <label>Current Medications</label>
+            <textarea rows="3" required></textarea>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge the medical information provided is accurate.
+            </label>
+
+            <!-- SECTION 4 — LIABILITY WAIVER -->
+            <h3>Section 4 — Liability Waiver & Assumption of Risk</h3>
+            <p class="waiver-text">
+                I acknowledge that participation in ice hockey and related training activities involves inherent risks
+                including collisions, contact with sticks or pucks, falls, physical exertion injuries, and facility
+                hazards. I voluntarily assume all risks associated with participation in SRVC Hockey Camp.
+            </p>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge and accept the liability waiver.
+            </label>
+
+            <!-- SECTION 5 — RELEASE OF LIABILITY -->
+            <h3>Section 5 — Release of Liability</h3>
+            <p class="waiver-text">
+                I release and hold harmless SRVC Hockey Camp, directors, coaches, staff, volunteers, the host rink, and
+                affiliated organizations from any claims or injuries arising from participation.
+            </p>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge and accept the release of liability.
+            </label>
+
+            <!-- SECTION 6 — MEDICAL AUTHORIZATION -->
+            <h3>Section 6 — Medical Authorization</h3>
+            <p class="waiver-text">
+                I certify the participant is physically able to participate. I authorize staff to obtain emergency
+                medical treatment if needed.
+            </p>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge and accept the medical authorization.
+            </label>
+
+            <!-- SECTION 7 — CONCUSSION AWARENESS -->
+            <h3>Section 7 — Concussion Awareness</h3>
+            <p class="waiver-text">
+                I understand hockey carries concussion risks. If a concussion is suspected, the participant will be
+                removed until medically cleared.
+            </p>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge the concussion awareness policy.
+            </label>
+
+            <!-- SECTION 8 — PHOTO & MEDIA RELEASE -->
+            <h3>Section 8 — Photo & Media Release</h3>
+            <p class="waiver-text">
+                I grant permission for SRVC Hockey Camp to photograph or record the participant for promotional and
+                marketing purposes.
+            </p>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge and accept the media release.
+            </label>
+
+            <!-- SECTION 9 — PLAYER CODE OF CONDUCT -->
+            <h3>Section 9 — Player Code of Conduct</h3>
+            <p class="waiver-text">
+                Participants agree to respect coaches, staff, and players; follow safety rules; show sportsmanship; and
+                refrain from bullying or unsafe conduct.
+            </p>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge the player code of conduct.
+            </label>
+
+            <!-- SECTION 10 — INDEMNIFICATION -->
+            <h3>Section 10 — Indemnification Agreement</h3>
+            <p class="waiver-text">
+                The participant and/or parent agrees to indemnify and hold harmless the camp and affiliates from any
+                claims or expenses arising from participation.
+            </p>
+
+            <label class="ack">
+                <input type="checkbox" required>
+                I acknowledge the indemnification agreement.
+            </label>
+
+            <!-- SECTION 11 — SIGNATURES -->
+            <h3>Section 11 — Signatures</h3>
+
+            <label>Participant Signature</label>
+            <input type="text" required>
+
+            <label>Date</label>
+            <input type="date" required>
+
+            <label>Parent/Guardian Signature (if under 18)</label>
+            <input type="text">
+
+            <button type="submit">Submit Registration</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
