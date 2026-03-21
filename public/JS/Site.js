@@ -1,34 +1,15 @@
-console.log("Site.js loaded");
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyCifDL5R72cq3Al5FzikSbeGk2PUStrAGY",
-    authDomain: "srvc-camp.firebaseapp.com",
-    projectId: "srvc-camp",
-    storageBucket: "srvc-camp.firebasestorage.app",
-    messagingSenderId: "205632013147",
-    appId: "1:205632013147:web:7a0c8c00836c04a55a907e",
-    measurementId: "G-N3DHCXYTQD"
-};
+document.getElementById("registerForm").addEventListener("submit", async function(e) {
+    e.preventDefault(); // stop normal form submission
 
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const analytics = firebase.analytics();
-const db = firebase.firestore();
+    const form = e.target;
+    const formData = new FormData(form);
 
-document.querySelector(".register-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.target);
-    const data = {};
-
-    formData.forEach((value, key) => {
-        data[key] = value;
+    // Send POST request manually
+    await fetch("https://script.google.com/macros/s/AKfycbwk4gnWTISvhbuXdQnf116At7bjLxs718Fodr3uOenS-TEidVTgD2v0BEPvvmA4Yi3g7Q/exec", {
+        method: "POST",
+        body: formData
     });
-    try {
-        console.log("Sending to Firestore:", data);
-        await db.collection("registrations").add(data);
-        console.log("Firestore write complete");
-    } catch (error) {
-        console.error("Firestore error:", error.code, error.message);
-    }
+
+    // Redirect AFTER the POST finishes
+    window.location.href = "thanks.html";
 });
