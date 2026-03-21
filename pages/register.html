@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hockey-site (Home)</title>
+    <title>SRVC Hockey Registration</title>
     <link rel="stylesheet" href="../public/CSS/site.css">
     <div class="top-tab">
         <span class="brand">
@@ -16,7 +16,10 @@
             <a href="register.html" class="tab register active">Register</a>
         </nav>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
+    <script src="../public/js/Site.js" defer></script>
 </head>
 
 <body>
@@ -24,31 +27,32 @@
         <h1>SRVC HOCKEY CAMP</h1>
         <h2>Official Camp Registration Packet</h2>
 
-        <form class="register-form">
+        <form class="register-form" method="POST"
+            action="https://script.google.com/macros/s/AKfycbwk4gnWTISvhbuXdQnf116At7bjLxs718Fodr3uOenS-TEidVTgD2v0BEPvvmA4Yi3g7Q/exec">
 
             <!-- SECTION 1 — PARTICIPANT INFORMATION -->
             <h3>Section 1 — Participant Information</h3>
 
             <label>Participant Name</label>
-            <input type="text" required>
+            <input type="text" pattern="[A-Za-z\- ]+" name="participantName" required>
 
             <label>Date of Birth</label>
-            <input type="date" required>
+            <input type="date" name="dateOfBirth" required>
 
             <label>Age</label>
-            <input type="number" min="1" required>
+            <input type="number" name="age" min="1" required>
 
             <label>Current Team / Level</label>
-            <input type="text" required>
+            <input type="text" name="currentTeam" required>
 
             <label>Position</label>
-            <input type="text" required>
+            <input type="text" name="position" required>
 
             <label>USA Hockey Membership Number</label>
-            <input type="text" required>
+            <input type="text" pattern="[0-9]+" name="usaHockeyMembershipNumber" required>
 
             <label>Jersey Size</label>
-            <select required>
+            <select name="jerseySize" required>
                 <option value="">Select size</option>
                 <option>YS</option>
                 <option>YM</option>
@@ -60,34 +64,34 @@
             </select>
 
             <label>Parent/Guardian Name</label>
-            <input type="text" required>
+            <input type="text" pattern="[A-Za-z\- ]+" name="parentGuardianName" required>
 
             <label>Phone</label>
-            <input type="tel" required>
+            <input type="tel" name="phone" required>
 
             <label>Email</label>
-            <input type="email" required>
+            <input type="email" name="email" required>
 
             <label>Address</label>
-            <input type="text" required>
+            <input type="text" name="address" required>
 
             <div class="row">
                 <div>
                     <label>City</label>
-                    <input type="text" required>
+                    <input type="text" name="city" required>
                 </div>
                 <div>
                     <label>State</label>
-                    <input type="text" required>
+                    <input type="text" name="state" required>
                 </div>
                 <div>
                     <label>Zip</label>
-                    <input type="text" required>
+                    <input type="text" pattern="[0-9]+" name="zip" required>
                 </div>
             </div>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment1" required>
                 I acknowledge the above information is accurate.
             </label>
 
@@ -95,16 +99,16 @@
             <h3>Section 2 — Emergency Contact</h3>
 
             <label>Emergency Contact Name</label>
-            <input type="text" required>
+            <input type="text" pattern="[A-Za-z\- ]+" name="emergencyContactName" required>
 
             <label>Relationship to Player</label>
-            <input type="text" required>
+            <input type="text" pattern="[A-Za-z\- ]+" name="relationshipToPlayer" required>
 
             <label>Phone Number</label>
-            <input type="tel" required>
+            <input type="tel" name="phoneEmergency" required>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment2" required>
                 I acknowledge this emergency contact information is correct.
             </label>
 
@@ -112,25 +116,25 @@
             <h3>Section 3 — Medical Information</h3>
 
             <label>Primary Insurance Provider</label>
-            <input type="text" required>
+            <input type="text" name="insuranceProvider" required>
 
             <label>Policy Number</label>
-            <input type="text" required>
+            <input type="text" name="policyNumber" required>
 
             <label>Primary Physician</label>
-            <input type="text" required>
+            <input type="text" name="primaryPhysician" required>
 
             <label>Physician Phone</label>
-            <input type="tel" required>
+            <input type="tel" name="physicianPhone" required>
 
             <label>Medical Conditions / Allergies</label>
-            <textarea rows="3" required></textarea>
+            <textarea rows="3" name="medicalConditions" required></textarea>
 
             <label>Current Medications</label>
-            <textarea rows="3" required></textarea>
+            <textarea rows="3" name="currentMedications" required></textarea>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment3" required>
                 I acknowledge the medical information provided is accurate.
             </label>
 
@@ -143,7 +147,7 @@
             </p>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment4" required>
                 I acknowledge and accept the liability waiver.
             </label>
 
@@ -155,7 +159,7 @@
             </p>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment5" required>
                 I acknowledge and accept the release of liability.
             </label>
 
@@ -167,7 +171,7 @@
             </p>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment6" required>
                 I acknowledge and accept the medical authorization.
             </label>
 
@@ -179,7 +183,7 @@
             </p>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment7" required>
                 I acknowledge the concussion awareness policy.
             </label>
 
@@ -191,7 +195,7 @@
             </p>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment8" required>
                 I acknowledge and accept the media release.
             </label>
 
@@ -203,7 +207,7 @@
             </p>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment9" required>
                 I acknowledge the player code of conduct.
             </label>
 
@@ -215,7 +219,7 @@
             </p>
 
             <label class="ack">
-                <input type="checkbox" required>
+                <input type="checkbox" name="acknowledgment10" required>
                 I acknowledge the indemnification agreement.
             </label>
 
@@ -223,13 +227,16 @@
             <h3>Section 11 — Signatures</h3>
 
             <label>Participant Signature</label>
-            <input type="text" required>
+            <input type="text" name="participantSignature" required>
 
             <label>Date</label>
-            <input type="date" required>
+            <input type="date" name="participantDate" required>
 
             <label>Parent/Guardian Signature (if under 18)</label>
-            <input type="text">
+            <input type="text" name="parentSignature">
+
+            <label>Date</label>
+            <input type="date" name="parentDate" required>
 
             <button type="submit">Submit Registration</button>
         </form>
