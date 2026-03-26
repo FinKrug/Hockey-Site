@@ -1,3 +1,12 @@
+// Restore step state
+if (localStorage.getItem("srvcStepCompleted") === "true") {
+    document.getElementById("doc-step").style.display = "none";
+    document.getElementById("form-step").style.display = "block";
+} else {
+    document.getElementById("doc-step").style.display = "block";
+    document.getElementById("form-step").style.display = "none";
+}
+
 // Check URL for ?new=true
 const urlParams = new URLSearchParams(window.location.search);
 const isNewRegistration = urlParams.get("new") === "true";
@@ -11,6 +20,7 @@ if (!isNewRegistration && localStorage.getItem("srvcFormSubmitted") === "true") 
 if (isNewRegistration) {
     localStorage.removeItem("srvcRegistrationData");
     localStorage.removeItem("srvcFormSubmitted");
+    localStorage.removeItem("srvcStepCompleted");
 }
 
 const form = document.querySelector(".register-form");
@@ -49,7 +59,7 @@ form.addEventListener("input", () => {
 });
 
 // Handle form submission with await + redirect
-ddocument.getElementById("registerForm").addEventListener("submit", async function(e) {
+document.getElementById("registerForm").addEventListener("submit", async function(e) {
     e.preventDefault(); // stop normal form submission
 
     const form = e.target;
@@ -76,3 +86,35 @@ ddocument.getElementById("registerForm").addEventListener("submit", async functi
     // Redirect AFTER the POST finishes
     window.location.href = "thanks.html";
 });
+document.getElementById("docForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // stop actual submission
+
+    // If the form is valid, browser won't block it
+    if (this.checkValidity()) {
+        // Save step completion
+        localStorage.setItem("srvcStepCompleted", "true");
+
+        // Move to Step 2
+        document.getElementById("doc-step").style.display = "none";
+        document.getElementById("form-step").style.display = "block";
+    } else {
+        // Trigger browser's built-in validation UI
+        this.reportValidity();
+    }
+});
+document.querySelectorAll(".doc-check").forEach(check => {
+    check.addEventListener("change", () => {
+        const docState = [];
+        document.querySelectorAll(".doc-check").forEach(c => {
+            docState.push(c.checked);
+        });
+        localStorage.setItem("srvcDocChecks", JSON.stringify(docState));
+    });
+});
+const savedDocs = JSON.parse(localStorage.getItem("srvcDocChecks"));
+if (savedDocs) {
+    const checks = document.querySelectorAll(".doc-check");
+    checks.forEach((c, i) => {
+        c.checked = savedDocs[i];
+    });
+}
