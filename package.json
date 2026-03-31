@@ -16,7 +16,8 @@
   "type": "module",
   "main": "eslint.config.js",
   "scripts": {
-    "start": "node server.cjs"
+    "start": "node server.cjs",
+    "build": "node server.cjs"
   },
   "dependencies": {
     "express": "^5.2.1"
