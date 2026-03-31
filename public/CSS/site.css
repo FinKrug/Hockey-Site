@@ -331,6 +331,7 @@ body {
 
 .section-light {
   background-color: #ffffff;
+  text-align: center;
 }
 
 .section-muted {
@@ -364,15 +365,17 @@ body {
 }
 
 .highlights-list {
-  max-width: 800px;
+  display: inline-block; /* shrink to content width */
+  text-align: left;      /* keep checkmarks aligned */
+  padding: 0;
   margin: 0 auto;
   list-style: none;
-  padding: 0;
 }
 
 .highlights-list li {
   margin: 10px 0;
 }
+
 
 .highlights-list li::before {
   content: "✔";
@@ -432,6 +435,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  font-size: 25px;
 }
 
 .cta-section p {
@@ -468,4 +472,42 @@ a.text-link {
 
 a.text-link:hover {
   color: #ffffff;
+}
+
+.schedule-wrapper {
+    max-width: 800px;   /* was 1100px — now smaller */
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-size: 0.95rem; /* optional: slightly smaller text */
+}
+
+.schedule-table th {
+    background-color: #7d8a35;
+    color: #fff;
+    padding: 12px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.schedule-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e6eec9;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f5f7f0;
+}
+
+.schedule-table tr:hover {
+    background-color: #e6eec9;
+    transition: 0.2s;
 }
