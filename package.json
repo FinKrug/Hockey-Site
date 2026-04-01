@@ -14,14 +14,5 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "eslint.config.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "node index.html",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "express": "^5.2.1"
-  }
+  "main": "eslint.config.js"
 }
