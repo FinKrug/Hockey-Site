@@ -7,6 +7,14 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
+  white-space: nowrap; /* keep desktop clean */
+}
+
+@media (max-width: 600px) {
+  .logoName {
+    white-space: normal; /* allow wrapping on mobile */
+    font-size: 1.2rem;   /* slightly smaller for phones */
+  }
 }
 
 .top-tab {
