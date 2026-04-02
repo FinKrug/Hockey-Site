@@ -12,10 +12,10 @@ body {
 
 @media (max-width: 600px) {
   .logoName {
-    white-space: normal; /* allow wrapping on mobile */
-    font-size: 1.2rem;   /* slightly smaller for phones */
+    display: none;
   }
 }
+
 
 .top-tab {
   display: flex;
