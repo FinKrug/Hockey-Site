@@ -59,7 +59,7 @@ form.addEventListener("input", () => {
 });
 
 // Handle form submission with await + redirect
-document.getElementById("registerForm").addEventListener("submit", async function(e) {
+document.getElementById("registerForm").addEventListener("submit", async function (e) {
     e.preventDefault(); // stop normal form submission
 
     const form = e.target;
@@ -97,6 +97,8 @@ document.getElementById("docForm").addEventListener("submit", function (e) {
         // Move to Step 2
         document.getElementById("doc-step").style.display = "none";
         document.getElementById("form-step").style.display = "block";
+        // Redirect to payment page
+        window.location.href = "payment.html";
     } else {
         // Trigger browser's built-in validation UI
         this.reportValidity();

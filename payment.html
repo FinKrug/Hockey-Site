@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SRVC Camp Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e6eec9;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .payment-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 20px;
+            font-size: 18px;
+            background: #7d8a35;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #6c772f;
+        }
+    </style>
+    <link rel="stylesheet" href="../public/CSS/site.css">
+</head>
+<body>
+
+    <div class="payment-box">
+        <h2>Select Your Camp Payment</h2>
+
+        <select id="paymentSelect">
+            <option value="">-- Choose an option --</option>
+            <option value="10u12u-regular">10U–12U (Regular)</option>
+            <option value="10u12u-goalie">10U–12U (Goalie)</option>
+            <option value="13u16u-regular">13U–16U (Regular)</option>
+            <option value="13u16u-goalie">13U–16U (Goalie)</option>
+            <option value="8u">8U</option>
+        </select>
+
+        <button onclick="confirmPayment()">Confirm</button>
+    </div>
+
+    <script>
+        // Replace these with your real Square checkout links
+        const paymentLinks = {
+            "10u12u-regular": "https://square.link/u/fvgWq9mi",
+            "10u12u-goalie": "https://square.link/u/gZCW6ckE",
+            "13u16u-regular": "https://square.link/u/CBW4DgpO",
+            "13u16u-goalie": "https://square.link/u/kA9AVppi",
+            "8u": "https://square.link/u/EhcohR6q"
+        };
+
+        function confirmPayment() {
+            const selected = document.getElementById("paymentSelect").value;
+
+            if (!selected) {
+                alert("Please select a payment option before continuing.");
+                return;
+            }
+
+            // Redirect to the correct Square checkout link
+            window.location.href = paymentLinks[selected];
+        }
+    </script>
+
+</body>
+</html>
