@@ -99,7 +99,7 @@ document.getElementById("docForm").addEventListener("submit", function (e) {
         localStorage.setItem("srvcStepCompleted", "true");
 
         // Redirect to payment page
-        window.location.href = "payment.html";
+        window.location.href = "payment";
     } else {
         this.reportValidity();
     }
