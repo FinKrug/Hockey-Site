@@ -1,8 +1,13 @@
-// Restore step state
-if (localStorage.getItem("srvcStepCompleted") === "true") {
+// Always start on Step 1 unless coming back from payment
+const params = new URLSearchParams(window.location.search);
+const paid = params.get("paid");
+
+if (paid === "true") {
+    // Show Step 2
     document.getElementById("doc-step").style.display = "none";
     document.getElementById("form-step").style.display = "block";
 } else {
+    // Always show Step 1 first
     document.getElementById("doc-step").style.display = "block";
     document.getElementById("form-step").style.display = "none";
 }
@@ -87,20 +92,15 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     window.location.href = "thanks.html";
 });
 document.getElementById("docForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // stop actual submission
+    e.preventDefault();
 
-    // If the form is valid, browser won't block it
     if (this.checkValidity()) {
-        // Save step completion
+        // Save doc completion if you still want it
         localStorage.setItem("srvcStepCompleted", "true");
 
-        // Move to Step 2
-        document.getElementById("doc-step").style.display = "none";
-        document.getElementById("form-step").style.display = "block";
         // Redirect to payment page
         window.location.href = "payment.html";
     } else {
-        // Trigger browser's built-in validation UI
         this.reportValidity();
     }
 });
