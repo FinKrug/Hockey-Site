@@ -25,11 +25,25 @@ body {
   height: 6vh;
   background: #abbc50;
 }
+@media (max-width: 600px) {
+  .top-tab {
+    padding: 0 1vw;
+    gap: 1vw;
+  }
+
+  nav {
+    gap: 1vw;
+  }
+
+  nav .tab {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+  }
+}
 
 .logo-section {
-  display: flex;
-  align-items: center;
-  gap: 1vw;
+  flex-shrink: 0;
+  max-width: 60vw; /* prevents logo from hogging space */
 }
 
 nav {
@@ -37,6 +51,7 @@ nav {
   align-items: center;
   gap: 1.5vw;
   margin-left: auto;
+  flex-shrink: 1;
 }
 
 nav .tab {
