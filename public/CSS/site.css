@@ -7,7 +7,8 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
-  white-space: nowrap; /* keep desktop clean */
+  white-space: nowrap;
+  /* keep desktop clean */
 }
 
 @media (max-width: 600px) {
@@ -25,6 +26,7 @@ body {
   height: 6vh;
   background: #abbc50;
 }
+
 @media (max-width: 600px) {
   .top-tab {
     padding: 0 1vw;
@@ -43,7 +45,8 @@ body {
 
 .logo-section {
   flex-shrink: 0;
-  max-width: 60vw; /* prevents logo from hogging space */
+  max-width: 60vw;
+  /* prevents logo from hogging space */
 }
 
 nav {
@@ -312,15 +315,38 @@ body {
 }
 
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("public/Images/hero-hockey.jpg") center/cover no-repeat;
+  position: relative;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("public/Images/hero-hockey.jpg") center/cover no-repeat;
   color: #fff;
   padding: 80px 20px;
   text-align: center;
+  overflow: hidden;
+  /* allows faded logo to stay inside */
+}
+
+/* Faded SRVC logo behind the text */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../Images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  /* zoomed out (bigger) */
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-inner {
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
+  z-index: 2;
+  /* ensures text sits above faded logo */
 }
 
 .hero h1 {
@@ -388,8 +414,10 @@ body {
 }
 
 .highlights-list {
-  display: inline-block; /* shrink to content width */
-  text-align: left;      /* keep checkmarks aligned */
+  display: inline-block;
+  /* shrink to content width */
+  text-align: left;
+  /* keep checkmarks aligned */
   padding: 0;
   margin: 0 auto;
   list-style: none;
@@ -498,39 +526,41 @@ a.text-link:hover {
 }
 
 .schedule-wrapper {
-    max-width: 800px;   /* was 1100px — now smaller */
-    margin: 0 auto;
-    overflow-x: auto;
+  max-width: 800px;
+  /* was 1100px — now smaller */
+  margin: 0 auto;
+  overflow-x: auto;
 }
 
 .schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    font-size: 0.95rem; /* optional: slightly smaller text */
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+  /* optional: slightly smaller text */
 }
 
 .schedule-table th {
-    background-color: #7d8a35;
-    color: #fff;
-    padding: 12px;
-    font-weight: 600;
-    text-align: left;
+  background-color: #7d8a35;
+  color: #fff;
+  padding: 12px;
+  font-weight: 600;
+  text-align: left;
 }
 
 .schedule-table td {
-    padding: 12px;
-    border-bottom: 1px solid #e6eec9;
+  padding: 12px;
+  border-bottom: 1px solid #e6eec9;
 }
 
 .schedule-table tr:nth-child(even) {
-    background-color: #f5f7f0;
+  background-color: #f5f7f0;
 }
 
 .schedule-table tr:hover {
-    background-color: #e6eec9;
-    transition: 0.2s;
+  background-color: #e6eec9;
+  transition: 0.2s;
 }
