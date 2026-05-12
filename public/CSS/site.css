@@ -98,12 +98,11 @@ section {
 }
 
 .register-container {
-  margin-top: 10vh;
+  max-width: 600px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .register-container h1 {
